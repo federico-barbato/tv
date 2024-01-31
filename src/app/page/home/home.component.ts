@@ -13,15 +13,41 @@ import { CatalogoModule } from "../../shared/catalogo/catalogo.component";
 export class HomeComponent implements OnInit {
 
   elements: any =[];
+  loading: boolean = false;
+  tipo: string = 'film';
+  page: number = 0;
+
 
  constructor (private apiService: ApiService) {}
 
- async ngOnInit() {
-  this.elements = await this.apiService.listaFilms();
-     console.log(this.elements);
- }
+ ngOnInit(): void {
+  // CHIAMATA DELLA FUNZIONE PER IL CARICAMENTO "INFINITO" DELLA LISTA FILM 
+  this.caricaAltro();
+  // CONTROLLO SCROLL DELL'UTENTE : QUANDO ARRIVA VICINO ALLA FINE DELLA PAGINA CARICA ALTRI ARTICOLI  
+  document.addEventListener('scroll', (event) => {
+    if (window.scrollY + window.outerHeight >= document.body.scrollHeight) {
+      // SISTEMA DI CONTROLLO PER EVITARE CHE I CARICAMENTI SI SOVRAPPONGANO 
+      if (this.loading == false) this.caricaAltro();
+    }
+  })
+}
+// FUNZIONE CARICAMENTO "INFINITO" DELLA LISTA FILM 
+async caricaAltro() {
+  // INIZIO CARICAMENTO 
+  this.loading = true;
+  this.page++;
 
- 
+  if (this.tipo == 'film') {
+    // CHIAMATA API ESTERNA 
+    const results: any = await this.apiService.listaFilms(this.page + '');
+    for (let i = 0; i < results.length; i++) {
+      // PUSH NECESSARIO PER INSERIRE I VALORI UNO AD UNO ALL'INTERNO DELL'ARRAY 
+      this.elements.push(results[i]);
+    }
+    // FINE CARICAMENTO
+    this.loading = false;
+  }
+}
 }
 
 
