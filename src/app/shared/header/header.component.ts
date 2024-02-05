@@ -16,7 +16,9 @@ export class HeaderComponent {
   ) {}
 
   getMenu(): any[] {
-    return this.router.config
+    const menu = this.router.config;
+    console.log  (menu);
+    return menu;
   }
 }
 

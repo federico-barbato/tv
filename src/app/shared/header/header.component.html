@@ -3,8 +3,8 @@
         <div class="menu-container" [class.open]="menuOpened">
             <div class="menu">
                 <div class="element" *ngFor="let page of getMenu()">
-                    <a (click)="menuOpened = false" [href]="page?.path">
-                        <span>{{ page.data.name}}</span>
+                    <a *ngIf="page?.data && !page?.data?.hide" (click)="menuOpened = false" [href]="page?.path">
+                        <span>{{ page?.data?.name}}</span>
                     </a>
                 </div>
             </div>
