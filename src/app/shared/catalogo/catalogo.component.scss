@@ -24,3 +24,35 @@
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+.dettaglio-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    .container-dettaglio {
+        background-color: white;
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        border-radius: 25px 0 25px 25px;
+
+        
+        .menuClose {
+            cursor: pointer;
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            img {
+                height: 30px;
+                width: 30px;
+            }
+        }
+    }
+}

@@ -1,11 +1,13 @@
-<div class="container">
+<div>
     <div class="titleCard">
-        
+        {{dettaglio.titolo}}
     </div>
-    <div class="imageCard">
-
-    </div>
-    <div class="descrizioneCard">
-
+    <div class="container">
+        <div class="imageCard">
+            <img [src]="dettaglio.image" alt="">
+        </div>
+        <div class="descrizioneCard">
+            {{dettaglio.descrizione || "TRAMA NON DISPONIBILE"}} 
+        </div>
     </div>
 </div>

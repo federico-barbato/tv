@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, Input, NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-card-dettaglio',
@@ -7,7 +7,7 @@ import { Component, NgModule } from '@angular/core';
   styleUrls: ['./card-dettaglio.component.scss']
 })
 export class CardDettaglioComponent {
-  
+  @Input() dettaglio: Dettaglio | any = null;
 }
 
 /*================================================================
@@ -20,3 +20,9 @@ exports: [CardDettaglioComponent],
 
 })
 export class CardDettaglioModule {}
+
+export interface Dettaglio {
+  titolo: string;
+  descrizione: string;
+  image: string;
+}

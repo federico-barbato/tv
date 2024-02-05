@@ -6,6 +6,10 @@
     border-radius: 25px;
     overflow: hidden;
 
+    &:hover {
+        cursor: pointer;
+    }
+
     .titleElement {
         color: black;
         justify-content: center;
@@ -14,19 +18,15 @@
         min-height: 45px;
         max-height: 50px;
 
-        a {
-            text-decoration: none;
-            color: black;
+
+        h4 {
+            margin: 0;
+            height: auto;
+            display: inline;
 
             &:hover {
                 color: red;
                 transform: scale(1.2);
-            }
-
-            h4 {
-                margin: 0;
-                height: 50px;
-                display: inline;
             }
         }
     }
@@ -37,6 +37,7 @@
 
         img {
             margin-bottom: -15px;
+
         }
     }
 }

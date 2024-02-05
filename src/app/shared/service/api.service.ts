@@ -26,4 +26,18 @@ export class ApiService {
       });
     });
   }
+
+   // CHIAMATA API PER RICEVERE ARRAY CONTENTE I DETTAGLI DEL FILM SELEZIONATO TRAMITE ID
+   dettaglioFilm(id: string) {
+    return new Promise((resolve, reject) => {
+      const url = this.apiUrl + 'movie/' + id + this.apiKey + this.apiLang;
+      this.http.get(url).subscribe((data:any) => {
+        if(data){
+          resolve(data);
+        }else{
+          reject(data);
+        }
+      });
+    });
+  }
 }

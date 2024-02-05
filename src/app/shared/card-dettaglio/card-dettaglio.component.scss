@@ -1,13 +1,22 @@
+.titleCard {
+    text-align: center;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 30px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 .container {
-        .titleCard{
-            h3 {
-                
-            }
+    .imageCard {
+        img {
+            padding: 25px;
         }
-        .imageCard{
+    }
 
-        }
-        .descrizioneCard{
-
-        }
+    .descrizioneCard {
+        padding: 25px;
+    }
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, NgModule } from '@angular/core';
+import { Component, EventEmitter, Input, NgModule, Output } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 export class CardComponent {
   env = environment;
   @Input() element: any= null;
+  @Output() eventClick= new EventEmitter();
 }
 
 
