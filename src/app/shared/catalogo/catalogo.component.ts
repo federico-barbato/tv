@@ -41,8 +41,12 @@ export class CatalogoComponent implements OnInit {
     this.page++;
 
     if (this.tipo == 'film') {
-      // CHIAMATA API ESTERNA
-      this.elements = await this.apiService.listaFilms(this.page + '');
+      // CHIAMATA API ESTERNA 
+      const results: any = await this.apiService.listaFilms(this.page + '');
+      for (let i = 0; i < results.length; i++) {
+        // PUSH NECESSARIO PER INSERIRE I VALORI UNO AD UNO ALL'INTERNO DELL'ARRAY 
+        this.elements.push(results[i]);
+      }
       // FINE CARICAMENTO
       this.loading = false;
     }
