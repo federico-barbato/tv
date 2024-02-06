@@ -1,22 +1,36 @@
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from 'src/app/shared/service/api.service';
+import { HeaderModule } from "../../shared/header/header.component";
+import { SwiperModule } from "../../shared/swiper/swiper.component";
 
 @Component({
   selector: 'app-dettaglio',
   templateUrl: './dettaglio.component.html',
   styleUrls: ['./dettaglio.component.scss']
 })
-export class DettaglioComponent {
+export class DettaglioComponent implements OnInit {
+  el: any = null;
+  id: string = this.route.snapshot.paramMap.get('id') || '';
+  
+  constructor(private route: ActivatedRoute, private apiService:ApiService) {}
 
+  async ngOnInit() {
+    this.el = await this.apiService.dettaglioFilm(this.id)
+
+    this.el.cast = await this.apiService.listaCast(this.id) || [];
+    console.log(this.el);
+
+  }
 }
 
 /*================================================================
 # MODULE
 ================================================================*/
 @NgModule({
-declarations: [DettaglioComponent],
-imports: [CommonModule],
-exports: [DettaglioComponent],
-
+    declarations: [DettaglioComponent],
+    exports: [DettaglioComponent],
+    imports: [CommonModule, HeaderModule, SwiperModule]
 })
 export class DettaglioModule {}

@@ -33,7 +33,47 @@ export class ApiService {
       const url = this.apiUrl + 'movie/' + id + this.apiKey + this.apiLang;
       this.http.get(url).subscribe((data:any) => {
         if(data){
-          resolve(data);
+          resolve( {
+              titolo: data.title,
+              descrizione: data.overview,
+              image: environment.imageUrl+ 'w200' + data.poster_path,
+              imageDettaglio: environment.imageUrl+ 'w300' + data.poster_path,
+              id: data.id,
+            });
+        }else{
+          reject(data);
+        }
+      });
+    });
+  }
+
+  // CHIAMATA API PER RICEVERE ARRAY CONTENTE IL CAST DEL FILM SELEZIONATO TRAMITE ID
+  listaCast(id: string) {
+    return new Promise((resolve, reject) => {
+      // https://api.themoviedb.org/3/movie/787699/credits?language=en-US
+      const url = this.apiUrl + 'movie/'+ id + '/credits' + this.apiKey + this.apiLang;
+      this.http.get(url).subscribe((data:any) => {
+        if(data){
+          resolve(data.cast);
+        }else{
+          reject(data);
+        }
+      });
+    });
+  }
+
+  // CHIAMATA API PER RICEVERE ARRAY CONTENTE I DETTAGLI DEL TELEFILM SELEZIONATO TRAMITE ID
+  dettaglioTelefilm(id: string) {
+    return new Promise((resolve, reject) => {
+      const url = this.apiUrl + 'tv/' + id + this.apiKey + this.apiLang;
+      this.http.get(url).subscribe((data:any) => {
+        if(data){
+          resolve( {
+              titolo: data.title,
+              descrizione: data.overview,
+              image: environment.imageUrl + data.poster_path,
+              id: data.id,
+            });
         }else{
           reject(data);
         }

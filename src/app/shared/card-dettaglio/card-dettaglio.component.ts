@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, NgModule } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-dettaglio',
@@ -8,6 +9,12 @@ import { Component, Input, NgModule } from '@angular/core';
 })
 export class CardDettaglioComponent {
   @Input() dettaglio: Dettaglio | any = null;
+
+  constructor (private router: Router){};
+  apriElemento(id:string) {
+    this.router.navigate(['film', id]);    
+  }
+
 }
 
 /*================================================================

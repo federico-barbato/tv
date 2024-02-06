@@ -53,13 +53,7 @@ export class CatalogoComponent implements OnInit {
   }
 
   async openDettaglio(id: string) {
-    const dettaglio: any = await this.apiService.dettaglioFilm(id);
-    this.elementiDettaglio = {
-      titolo: dettaglio.title,
-      descrizione: dettaglio.overview,
-      image: environment.imageUrl + dettaglio.poster_path,
-    }
-    console.log(this.elementiDettaglio)
+    this.elementiDettaglio = await this.apiService.dettaglioFilm(id);
   }
 }
 

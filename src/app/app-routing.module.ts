@@ -10,6 +10,11 @@ const routes: Routes = [
     data: { name: 'HOME', },
   },
   {
+    path: 'home',
+    redirectTo: '',
+    pathMatch: 'full',
+  },
+  {
     path: 'film/:id',
     component: DettaglioComponent,
     data: { name: 'DETTAGLIO', hide: true }

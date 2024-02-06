@@ -1,0 +1,11 @@
+.heightLimit {
+    max-height: 150px;
+    .slide {
+        display: flex;
+        flex-direction: column;
+
+        .imageActor {
+            min-height: 304px;
+        }
+    }
+}
