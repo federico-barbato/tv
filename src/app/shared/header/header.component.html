@@ -1,16 +1,15 @@
+<div class="header-placeholder"></div>
 <div class="container">
-    <div>
-        <div class="menu-container" [class.open]="menuOpened">
-            <div class="menu">
-                <div class="element" *ngFor="let page of getMenu()">
-                    <a *ngIf="page?.data && !page?.data?.hide" [href]="page?.path">
-                        {{ page?.data?.name}}
-                    </a>
-                </div>
+    <div class="menu-container" [class.open]="menuOpened">
+        <div class="menu">
+            <div class="element" *ngFor="let page of getMenu()">
+                <a *ngIf="page?.data && !page?.data?.hide" [href]="page?.path">
+                    {{ page?.data?.name}}
+                </a>
             </div>
-            <div class="menu-button" (click)="menuOpened = !menuOpened">
-                <img alt="Menù button" [src]="menuOpened ? 'assets/img/menuClose.svg' : 'assets/img/menuOpen.svg'" />
-            </div>
+        </div>
+        <div class="menu-button" (click)="menuOpened = !menuOpened">
+            <img alt="Menù button" [src]="menuOpened ? 'assets/img/menuClose.svg' : 'assets/img/menuOpen.svg'" />
         </div>
     </div>
     <div class="navSocial">

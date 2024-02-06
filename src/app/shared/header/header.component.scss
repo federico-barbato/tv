@@ -1,6 +1,13 @@
+.header-placeholder {
+	height: 50px;
+}
 .container {
+	z-index: 10;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
 	background: #c90c0c;
-	// background: linear-gradient(0deg, rgba(0,0,0,0.32) 0%, rgba(201,12,12,1) 60%);
 	height: 50px;
 
 	.navSocial {
