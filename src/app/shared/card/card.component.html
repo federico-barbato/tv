@@ -1,8 +1,8 @@
 <div class="container-card" (click)="eventClick.emit(element.id)">
     <div class="titleElement">
-        <h4>{{element.title}}</h4>
+        <h4>{{element.titolo}}</h4>
     </div>
     <div class="imageElement">
-        <img src="{{env.imageUrl+'w200'+element.poster_path}}" alt="">
+        <img src="{{element.image}}" alt="">
     </div>
 </div>

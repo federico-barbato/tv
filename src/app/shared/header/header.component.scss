@@ -1,23 +1,21 @@
 .container {
-    background:#c90c0c;
-    // background: linear-gradient(0deg, rgba(0,0,0,0.32) 0%, rgba(201,12,12,1) 60%);
-    height: 50px;
+	background: #c90c0c;
+	// background: linear-gradient(0deg, rgba(0,0,0,0.32) 0%, rgba(201,12,12,1) 60%);
+	height: 50px;
 
-    .navSocial {
-        margin-left: auto;
+	.navSocial {
+		margin-left: auto;
 
-        a {
-            margin: 5px 5px;
+		a {
+			margin: 5px 5px;
 
-            img {
-                height: 35px;
-                width: 35px;
-            }
-        }
-    }
+			img {
+				height: 25px;
+				width: 25px;
+			}
+		}
+	}
 }
-
-
 
 .menu-container {
 	display: flex;
@@ -49,7 +47,7 @@
     ================================================================*/
 	.menu {
 		display: flex;
-        gap: 20px;
+		gap: 20px;
 
 		.element {
 			cursor: pointer;
@@ -63,7 +61,7 @@
 				min-height: 50px;
 				display: flex;
 				align-items: center;
-                margin-left: 25px;
+				margin-left: 25px;
 
 				&.active {
 					text-decoration: underline;
@@ -100,8 +98,12 @@
 				padding: 10px;
 
 				a {
-					border-bottom: 1px solid gray;
 					width: 100%;
+					color: red;
+
+					&:hover {
+						color: rgba(255, 0, 0, 0.5);
+					}
 				}
 
 				&:last-child a {

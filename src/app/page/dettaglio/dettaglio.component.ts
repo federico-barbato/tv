@@ -12,6 +12,7 @@ import { SwiperModule } from "../../shared/swiper/swiper.component";
 })
 export class DettaglioComponent implements OnInit {
   el: any = null;
+  similar: any = null;
   id: string = this.route.snapshot.paramMap.get('id') || '';
   
   constructor(private route: ActivatedRoute, private apiService:ApiService) {}
@@ -20,8 +21,10 @@ export class DettaglioComponent implements OnInit {
     this.el = await this.apiService.dettaglioFilm(this.id)
 
     this.el.cast = await this.apiService.listaCast(this.id) || [];
-    console.log(this.el);
+    // console.log(this.el);
 
+    this.el.similar = await this.apiService.similarFilm(this.id) || [];
+    console.log(this.el);
   }
 }
 

@@ -1,31 +1,40 @@
-.titleElement {
-    color: white;
-    text-align: center;
-}
+.container-dettaglio {
+    min-height: 100vh;
 
-.container {
-    justify-content: center;
+    .titleElement {
+        color: white;
+        text-align: center;
+    }
 
-    .imageElement {
-        img {
-            width: 300px;
+    .container {
+        justify-content: center;
+
+        .imageElement {
+            img {
+                width: 300px;
+            }
+        }
+
+        .descriptionElement {
+            padding: 50px;
+            color: white;
+            width: 100%;
+            max-width: 600px;
         }
     }
 
-    .descriptionElement {
-        padding: 50px;
-        color: white;
-        width: 100%;
-        max-width: 600px;
-    }
+}
 
-    .container-swiper{
+
+.title {
+    text-align: center;
+    color: white;
+}
+
+.container {
+    .container-swiper {
         width: 800px;
         display: block;
         color: white;
     }
-}
-.title {
-    text-align: center;
-    color: white;
 }

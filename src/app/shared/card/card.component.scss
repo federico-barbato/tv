@@ -1,6 +1,6 @@
 .container-card {
     background-color: white;
-    min-height: 330px;
+    min-height: 300px;
     max-width: 200px;
     margin: 15px;
     border-radius: 25px;
@@ -23,11 +23,6 @@
             margin: 0;
             height: auto;
             display: inline;
-
-            &:hover {
-                color: red;
-                transform: scale(1.2);
-            }
         }
     }
 

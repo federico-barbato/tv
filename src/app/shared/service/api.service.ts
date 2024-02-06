@@ -19,7 +19,16 @@ export class ApiService {
       const url = this.apiUrl + 'movie/popular' + this.apiKey + this.apiLang + '&page=' + page;
       this.http.get(url).subscribe((data:any) => {
         if(data){
-          resolve(data.results);
+          const elements: any = [];
+
+          data.results.forEach((el:any) => {
+            elements.push({
+              id: el.id,
+              titolo: el.title,
+              image: environment.imageUrl+'w200'+el.poster_path
+            });
+          });
+          resolve(elements);
         }else{
           reject(data);
         }
@@ -61,6 +70,29 @@ export class ApiService {
       });
     });
   }
+
+  // CHIAMATA API PER RICEVERE ARRAY CONTENTE IL CAST DEL FILM SELEZIONATO TRAMITE ID
+  similarFilm(id:string){
+    return new Promise((resolve, reject) => {
+      const url = this.apiUrl + 'movie/'+ id + '/similar' + this.apiKey + this.apiLang;
+      this.http.get(url).subscribe((data:any) => {
+        if(data){
+          const elements: any = [];
+
+          data.results.forEach((el:any) => {
+            elements.push({
+              id: el.id,
+              titolo: el.title,
+              image: environment.imageUrl+'w200'+el.poster_path
+            });
+          });
+          resolve(elements);
+        }else{
+          reject(data);
+        }
+      });
+    });
+  } 
 
   // CHIAMATA API PER RICEVERE ARRAY CONTENTE I DETTAGLI DEL TELEFILM SELEZIONATO TRAMITE ID
   dettaglioTelefilm(id: string) {
