@@ -1,5 +1,6 @@
 .container-dettaglio {
     min-height: 100vh;
+    padding: 10px;
 
     .titleElement {
         color: white;
@@ -8,7 +9,13 @@
 
     .container {
         justify-content: center;
-
+        
+        
+        /* Medium devices (tablets, 768px and up) */
+        @media (max-width: 768px){
+            flex-direction: column;
+        }
+        
         .imageElement {
             img {
                 width: 300px;
@@ -16,7 +23,6 @@
         }
 
         .descriptionElement {
-            padding: 50px;
             color: white;
             width: 100%;
             max-width: 600px;
@@ -33,7 +39,8 @@
 
 .container {
     .container-swiper {
-        width: 800px;
+        max-width: 800px;
+        width: 100%;
         display: block;
         color: white;
     }

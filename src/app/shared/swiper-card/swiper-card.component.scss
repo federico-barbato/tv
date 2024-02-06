@@ -1,11 +1,3 @@
-.slide {
-    display: flex;
-    flex-direction: column;
-
-    .imageActor {
-        min-height: 150px;
-        img {
-            height: 150px;
-        }
-    }
+.slide-container {
+    width: auto !important;
 }

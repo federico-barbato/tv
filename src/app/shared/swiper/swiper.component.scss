@@ -1,11 +1,26 @@
-.slide {
-    display: flex;
-    flex-direction: column;
+.slide-container {
+    width: auto !important;
 
-    .imageActor {
-        min-height: 150px;
-        img {
-            height: 150px;
+    .slide {
+        display: flex;
+        flex-direction: column;
+        color: white;
+
+        .imageActor {
+            min-height: 250px;
+
+            img {
+                height: 250px;
+            }
+        }
+        h4 {
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 150px;
+            margin: 0 auto;
+            padding: 10px 0;
         }
     }
 }

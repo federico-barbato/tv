@@ -1,30 +1,22 @@
 <app-header></app-header>
-<div *ngIf="el">
-    <div class="container-dettaglio">
-        <div class="titleElement">
-            <h2>{{el.titolo}}</h2>
+<div class="container-dettaglio" *ngIf="el">
+    <div class="titleElement">
+        <h2>{{el.titolo}}</h2>
+    </div>
+    <div class="container">
+        <div class="imageElement">
+            <img src="{{el.imageDettaglio}}" alt="">
         </div>
-        <div class="container">
-            <div class="imageElement">
-                <img src="{{el.imageDettaglio}}" alt="">
-            </div>
-            <div>
-                <div class="descriptionElement">
-                    <p>{{el.descrizione}}</p>
-                </div>
-            </div>
+        <div class="descriptionElement" *ngIf="el?.descrizione">
+            <p>{{el.descrizione}}</p>
         </div>
-        <h3 class="title">CAST</h3>
-        <div class="container">
-            <div class="container-swiper">
-                <app-swiper [elements]="el.cast"></app-swiper>
-            </div>
-        </div>
-        <h3 class="title">FILM SIMILI</h3>
-        <div class="container">
-            <div class="container-swiper">
-                <app-swiper-card [elements]="el.similar"></app-swiper-card>
-            </div>
-        </div>
+    </div>
+    <h3 class="title">CAST</h3>
+    <div class="container-swiper">
+        <app-swiper [elements]="el.cast"></app-swiper>
+    </div>
+    <h3 class="title">FILM SIMILI</h3>
+    <div class="container-swiper">
+        <app-swiper-card [elements]="el.similar"></app-swiper-card>
     </div>
 </div>

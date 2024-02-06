@@ -1,7 +1,5 @@
-<swiper-container class="mySwiper" space-between="30" slides-per-view="3">
-    <swiper-slide *ngFor="let el of elements">
-        <!-- <div class="slide"> -->
-            <app-card (eventClick)="apriElemento(el.id)" [element]="el"></app-card>
-        <!-- </div> -->
+<swiper-container class="mySwiper" space-between="30" slides-per-view="auto" free-mode="true">
+    <swiper-slide class="slide-container" *ngFor="let el of elements">
+        <app-card (eventClick)="apriElemento(el.id)" [element]="el"></app-card>
     </swiper-slide>
-  </swiper-container>
+</swiper-container>

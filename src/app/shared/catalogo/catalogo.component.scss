@@ -1,28 +1,8 @@
 .container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-
-
-
-    /* Extra large devices (large desktops, 1200px and up) */
-    @media (max-width: 1200px) {
-        grid-template-columns: repeat(5, 1fr);
-    }
-
-    /* Large devices (desktops, 992px and up) */
-    @media (max-width: 992px) {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    /* Medium devices (tablets, 768px and up) */
-    @media (max-width: 768px) {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    /* Small devices (landscape phones, 576px and up) */
-    @media (max-width: 576px) {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 15px;
 }
 
 .dettaglio-overlay {
