@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/shared/service/api.service';
 import { HeaderModule } from "../../shared/header/header.component";
 import { SwiperModule } from "../../shared/swiper/swiper.component";
+import { SwiperCardModule } from "../../shared/swiper-card/swiper-card.component";
 
 @Component({
   selector: 'app-dettaglio',
@@ -34,6 +35,6 @@ export class DettaglioComponent implements OnInit {
 @NgModule({
     declarations: [DettaglioComponent],
     exports: [DettaglioComponent],
-    imports: [CommonModule, HeaderModule, SwiperModule]
+    imports: [CommonModule, HeaderModule, SwiperModule, SwiperCardModule]
 })
 export class DettaglioModule {}
