@@ -94,6 +94,29 @@ export class ApiService {
     });
   } 
 
+  // CHIAMATA API PER RICEVERE ARRAY CONTENTE I FILM POPOLARI DEL MOMENTO 
+  trendingFilms(page: string = '1') {
+    return new Promise((resolve, reject) => {
+      const url = this.apiUrl + 'trending/movie/week' + this.apiKey + this.apiLang;
+      this.http.get(url).subscribe((data:any) => {
+        if(data){
+          const elements: any = [];
+
+          data.results.forEach((el:any) => {
+            elements.push({
+              id: el.id,
+              titolo: el.title,
+              image: environment.imageUrl+'w200'+el.poster_path
+            });
+          });
+          resolve(elements);
+        }else{
+          reject(data);
+        }
+      });
+    });
+  }
+
   // CHIAMATA API PER RICEVERE ARRAY CONTENTE I DETTAGLI DEL TELEFILM SELEZIONATO TRAMITE ID
   dettaglioTelefilm(id: string) {
     return new Promise((resolve, reject) => {
