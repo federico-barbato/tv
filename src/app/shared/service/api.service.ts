@@ -14,9 +14,10 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   // CHIAMATA API PER RICEVERE ARRAY CONTENTE I FILM POPOLARI DEL MOMENTO 
-  listaFilms(page: string = '1') {
+  listaFilms(page: string = '1', search: string = '') {
     return new Promise((resolve, reject) => {
-      const url = this.apiUrl + 'movie/popular' + this.apiKey + this.apiLang + '&page=' + page;
+      let url = this.apiUrl + 'movie/popular' + this.apiKey + this.apiLang + '&page=' + page;
+      if (search.length > 0) url = this.apiUrl + 'search/movie' + this.apiKey + this.apiLang + '&page=' + page + '&query=' + search;
       this.http.get(url).subscribe((data:any) => {
         if(data){
           const elements: any = [];
@@ -129,6 +130,31 @@ export class ApiService {
               image: environment.imageUrl + data.poster_path,
               id: data.id,
             });
+        }else{
+          reject(data);
+        }
+      });
+    });
+  }
+
+  // https://api.themoviedb.org/3/search/keyword
+
+  // CHIAMATA API PER RICEVERE ARRAY CONTENTE I FILM POPOLARI DEL MOMENTO 
+  searchFilms(page: string = '1') {
+    return new Promise((resolve, reject) => {
+      const url = this.apiUrl + 'search/' + this.apiKey + this.apiLang + '&page=' + page;
+      this.http.get(url).subscribe((data:any) => {
+        if(data){
+          const elements: any = [];
+
+          data.results.forEach((el:any) => {
+            elements.push({
+              id: el.id,
+              titolo: el.title,
+              image: environment.imageUrl+'w200'+el.poster_path
+            });
+          });
+          resolve(elements);
         }else{
           reject(data);
         }

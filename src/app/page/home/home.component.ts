@@ -5,6 +5,7 @@ import { CardModule } from "../../shared/card/card.component";
 import { ApiService } from 'src/app/shared/service/api.service';
 import { CatalogoModule } from "../../shared/catalogo/catalogo.component";
 import { SwiperCardModule } from "../../shared/swiper-card/swiper-card.component";
+import { SearchModule } from "../../shared/search/search.component";
 
 @Component({
   selector: 'app-home',
@@ -29,6 +30,6 @@ export class HomeComponent implements OnInit {
 @NgModule({
     declarations: [HomeComponent],
     exports: [HomeComponent],
-    imports: [CommonModule, HeaderModule, CardModule, CatalogoModule, SwiperCardModule]
+    imports: [CommonModule, HeaderModule, CardModule, CatalogoModule, SwiperCardModule, SearchModule]
 })
 export class HomeModule { }

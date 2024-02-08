@@ -1,7 +1,14 @@
+<section class="container">
+	<h2 class="title">FILM</h2>
+	<div class="bar-search">
+		<app-search (eventClick)="ricerca($event)"></app-search>
+	</div>
+</section>
 <div class="container">
+
 	<app-card [element]="element" *ngFor="let element of elements" (eventClick)="openDettaglio($event)"></app-card>
 </div>
-<div class="dettaglio-overlay"  *ngIf="elementiDettaglio">
+<div class="dettaglio-overlay" *ngIf="elementiDettaglio">
 	<div class="container-dettaglio">
 		<div class="menuClose">
 			<img src="assets/img/menuClose.svg" alt="" (click)="elementiDettaglio=null">
